@@ -1,2 +1,11 @@
 # mac-tools
-Tools &amp; config files for mac
+Tools & config files for mac.
+
+## Software
+* install brew
+* brew install wget
+
+### Python
+* brew reinstall python
+* install pip
+* pip install virtualenv virtualenvwrapper ipython
