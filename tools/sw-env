@@ -1,0 +1,29 @@
+#! /bin/bash
+
+OFFICE_WIFI="Tencent-OfficeWiFi"
+
+# Get wifi SSID
+SSID=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`
+echo $SSID
+
+WS=home
+
+if [ "$SSID" = "$OFFICE_WIFI" ]; then 
+    echo "Office Wifi!"
+    WS=office
+else
+    echo "Non Office Wifi!"
+fi
+
+# Absolute path to this script, e.g. /home/user/bin/foo.sh
+SCRIPT=$(readlink "$0")
+# Absolute path this script is in, thus /home/user/bin
+SCRIPTPATH=$(dirname "$SCRIPT")
+BASHRC=$SCRIPTPATH/env/${WS}_bashrc
+
+if [ ! -e $BASHRC ]; then
+    echo "FATAL: There is no $BASHRC"
+    exit 1
+fi
+
+/bin/bash --rcfile $BASHRC || exit 1

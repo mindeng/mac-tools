@@ -1,5 +1,5 @@
 # mac-tools
-Tools & config files for mac.
+Tools, configs & tips for Mac.
 
 ## Software
 * install brew
@@ -9,3 +9,6 @@ Tools & config files for mac.
 * brew reinstall python
 * install pip
 * pip install virtualenv virtualenvwrapper ipython
+
+## Setting Tips
+* Disable the annoying bell in terminal from the preference of the terminal

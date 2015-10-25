@@ -17,7 +17,9 @@ alias ls='ls -G'    # mac os x
 alias javac='javac -J-Dfile.encoding=UTF-8 -encoding UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 
-#set bell-style none
+# alias for hidden files
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 
 # Ignore repeated commonds
 export HISTCONTROL=ignoredups
@@ -27,10 +29,12 @@ export HISTIGNORE="[  ]*:&:bg:fg:exit:ls:rm:pwd"
 export HISTFILESIZE=10000000
 # Set the number of commands to remember
 export HISTSIZE=1000000
-shopt -s histappend
-shopt -s checkwinsize
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # For virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# load local bashrc
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
