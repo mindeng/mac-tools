@@ -19,7 +19,7 @@ fi
 SCRIPT=$(readlink "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
-BASHRC=$SCRIPTPATH/env/${WS}_bashrc
+BASHRC=$SCRIPTPATH/envs/${WS}_bashrc
 
 if [ ! -e $BASHRC ]; then
     echo "FATAL: There is no $BASHRC"

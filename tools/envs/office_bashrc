@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# load global_bashrc
+ENV_DIR="$( dirname "${BASH_SOURCE[0]}" )"
+f=$ENV_DIR/global_bashrc
+if [ -e $f ]; then
+    echo "Load $f"
+    source $f
+fi
+
+########################################
+# env for office
+echo "Load ${BASH_SOURCE[0]}"
+
+#ln -sf ~/.ssh/config.office ~/.ssh/config
+#ln -sf ~/.gitconfig.office ~/.gitconfig
+#ln -sf ~/.subversion/servers.office ~/.subversion/servers
+
+export http_proxy=web-proxy.oa.com:8080
+export https_proxy=web-proxy.oa.com:8080
+
+export PS1="\[\033[01;31m\]office\[\033[01;34m\] \w \$\[\033[00m\] "

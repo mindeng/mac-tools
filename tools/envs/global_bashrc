@@ -1,0 +1,7 @@
+#! /bin/bash
+
+HOME_BASHRC="$HOME/.bash_profile"
+if [ -e $HOME_BASHRC ]; then
+    echo "Load $HOME_BASHRC"
+    source $HOME_BASHRC
+fi

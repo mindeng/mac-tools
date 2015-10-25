@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# load global_bashrc
+ENV_DIR="$( dirname "${BASH_SOURCE[0]}" )"
+f=$ENV_DIR/global_bashrc
+if [ -e $f ]; then
+    echo "Load $f"
+    source $f
+fi
+
+########################################
+# env for home
+echo "Load ${BASH_SOURCE[0]}"
+
+#ln -sf ~/.ssh/config.home ~/.ssh/config
+#ln -sf ~/.gitconfig.home ~/.gitconfig
+#ln -sf ~/.subversion/servers.home ~/.subversion/servers
+
+export PS1="\[\033[01;31m\]home\[\033[01;34m\] \w \$\[\033[00m\] "
