@@ -46,6 +46,8 @@ def setup_config(name):
 
 def setup_configs():
     setup_config('.bash_profile')
+    setup_config('.vimrc')
+    setup_config('.screenrc')
 
 def setup_tool(name):
     src = os.path.join(TOOLS_DIR, name)
