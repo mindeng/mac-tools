@@ -59,6 +59,7 @@ def setup_tool(name):
 def setup_tools():
     setup_tool('sw-env')
     setup_tool('showHideFiles')
+    setup_tool('aes-tool.py')
 
 def main():
     setup_configs()
