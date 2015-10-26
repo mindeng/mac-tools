@@ -15,3 +15,7 @@ startup_message off # Turn off the splash screen
 
 # Make the shell start as a login shell, so the .bash_profile will be loaded
 shell -$SHELL
+
+# Don't block command output if the terminal stops responding
+# (like if the ssh connection times out for example).
+nonblock on
