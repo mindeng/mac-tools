@@ -64,3 +64,8 @@ set guioptions-=m
 
 " Use Q for formatting
 "nnoremap Q gq
+
+" For unite.vim
+nnoremap <leader>f :<C-u>Unite -start-insert buffer file<CR>
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
