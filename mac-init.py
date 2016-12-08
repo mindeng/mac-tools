@@ -5,7 +5,7 @@ import stat
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
 HOME_DIR = os.getenv('HOME')
-BIN_DIR = '/usr/local/bin'
+BIN_DIR = os.path.join(HOME_DIR, 'bin')
 
 CONFIGS_DIR = os.path.join(BASEDIR, 'configs')
 TOOLS_DIR = os.path.join(BASEDIR, 'tools')
@@ -45,15 +45,20 @@ def setup_config(name):
     ln_file(src, dst)
 
 def setup_configs():
-    setup_config('.bash_profile')
+    setup_config('.bashrc')
     setup_config('.vimrc')
     setup_config('.screenrc')
+
+def ensure_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 def setup_tool(name):
     src = os.path.join(TOOLS_DIR, name)
     dst = os.path.join(BIN_DIR, name)
     check_file_exists(src)
     add_exec_perm(src)
+    ensure_dir(BIN_DIR)
     ln_file(src, dst)
 
 def setup_tools():
