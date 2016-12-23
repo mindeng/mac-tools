@@ -1,8 +1,13 @@
-#export NDK_ROOT=~/soft/android-ndk-r8e
-#export PYTHONPATH=~/py_libs
-#export PATH=$NDK_ROOT:$PATH
+export ANDROID_NDK=~/Library/Android/sdk/ndk-bundle/
+export PATH=$ANDROID_NDK:~/Library/Android/sdk/platform-tools:$PATH
 
 export PATH=~/bin:$PATH
+
+# CCACHE
+export USE_CCACHE=1
+export NDK_CCACHE=/usr/local/bin/ccache
+
+#export PYTHONPATH=~/py_libs
 
 #export PS1="\u@\d:"
 #export PS1="\u@\h:\w$ "
