@@ -8,11 +8,14 @@ export USE_CCACHE=1
 export NDK_CCACHE=/usr/local/bin/ccache
 
 #export PYTHONPATH=~/py_libs
+#export PATH=$NDK_ROOT:$PATH
+export PATH=~/bin:$PATH
 
 #export PS1="\u@\d:"
 #export PS1="\u@\h:\w$ "
 
 export EDITOR="vim"
+export PROJECT_HOME="/Users/min/projects"
 
 alias rm='rm -i'
 alias mv='mv -i'
@@ -38,10 +41,5 @@ export HISTFILESIZE=10000000
 export HISTSIZE=1000000
 
 # For virtualenv
-#export WORKON_HOME=$HOME/.virtualenvs
-#source /usr/local/bin/virtualenvwrapper.sh
-
-# load local bashrc
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
