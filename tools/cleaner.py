@@ -70,13 +70,26 @@ def md5_file(fname):
 def iter_media_files(path, cb):
     for root, dirs, files in os.walk(path):
         for name in files:
+            p = os.path.join(root, name)
+            if os.path.islink(p):
+                # Ignore symbolic link
+                continue
+            elif is_hard_link(p):
+                # Ignore hard link
+                continue
+            
             _, ext = os.path.splitext(name)
             ext = ext.lower()
             if ext in EXTENSIONS:
-                p = os.path.join(root, name)
                 size = os.path.getsize(p)
                 created = creation_date(p)
                 cb(p, size, created, ext)
+
+def is_hard_link(path):
+    inum = os.stat(path).st_ino
+    _c = _db.cursor()
+    _c.execute('select path from files where inum=?', (inum, ))
+    return _c.fetchone() is not None
 
 def file_handler(path, size, created, ext):
     crc = None
@@ -90,7 +103,7 @@ def file_handler(path, size, created, ext):
             matched_crc = crc_file(row[0])
             _c.execute('update files set crc32=? where path=?', (matched_crc, row[0]))
         crc = crc_file(path)
-        _c.execute('update files set crc32=? where path=?', (crc, path))
+        _c.execute('update files set crc32=? where path=?', (crc, path.decode('utf-8')))
         if matched_crc == crc:
             if row[2]:
                 matched_md5 = row[2]
@@ -105,8 +118,9 @@ def file_handler(path, size, created, ext):
                 _db.commit()
                 return
     
-
-    _c.execute('insert into files values (?,?,?,?,?,?)', (path.decode('utf-8'), size, created, ext, crc, md5))
+    inum = os.stat(path).st_ino
+    _c.execute('insert into files values (?,?,?,?,?,?,?)', 
+        (path.decode('utf-8'), inum, size, created, ext, crc, md5))
     # print 'add file %s' % path
     _db.commit()
 
@@ -115,10 +129,10 @@ def main():
 
     # Create table
     c.execute('''CREATE TABLE files
-             (path text unique, size integer, created integer, extension text, crc32 integer, md5 text unique)''')
-    sql = ("CREATE INDEX index1 ON files (size);")
+             (path text unique, inum integer unique, size integer, created integer, extension text, crc32 integer, md5 text unique)''')
+    sql = ("CREATE INDEX index_size ON files (size);")
     c.execute(sql)
-    sql = ("CREATE INDEX index2 ON files (crc32);")
+    sql = ("CREATE INDEX index_crc ON files (crc32);")
     c.execute(sql)
 
 
