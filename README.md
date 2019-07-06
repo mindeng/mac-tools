@@ -6,16 +6,34 @@ Tools, configs & tips for Mac.
 
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [homebrew](https://brew.sh/)
-* python3: `brew install python`
-* ipython: `pip3 install ipython`
-* proxy: `pip3 install `
 
 ### Python
 
-* virtual environment:
-
-  `python3 -m venv env-name`
+* python3: `brew install python`
+* ipython: `pip3 install ipython`
+* virtual environment: `python3 -m venv env-name`
+* Install some python tools & libs: `pip3 install pycrypto`
   
-* Install some python tools & libs:
+## Proxy
 
-  `pip3 install pycrypto`
+* socks
+
+    mkdir ~/envs && cd envs
+    python3 -m venv ss
+    . ss/bin/activate
+    pip3 install s*s*
+    cat <<EOT >> ss/ss.json
+    {
+        "server": "server_name",
+        "server_port": 12345,
+        "local_address": "127.0.0.1",
+        "local_port": 1086,
+        "password": "password",
+        "timeout": 300,
+        "method": "chacha20",
+        "fast_open": false
+    }
+    EOT
+    ss -c ss/ss.json
+
+* http proxy: privoxy, polipo, squid, varnish, tinyproxy
