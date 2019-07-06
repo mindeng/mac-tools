@@ -62,7 +62,7 @@ def setup_tool(name):
     ln_file(src, dst)
 
 def setup_tools():
-    setup_tool('sw-env')
+    #setup_tool('sw-env')
     setup_tool('showHideFiles')
     setup_tool('aes-tool.py')
 

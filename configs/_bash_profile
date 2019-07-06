@@ -1,21 +1,5 @@
-export ANDROID_NDK=~/Library/Android/sdk/ndk-bundle/
-export PATH=$ANDROID_NDK:~/Library/Android/sdk/platform-tools:$PATH
-
-export PATH=~/bin:$PATH
-
-# CCACHE
-export USE_CCACHE=1
-export NDK_CCACHE=/usr/local/bin/ccache
-
-#export PYTHONPATH=~/py_libs
-#export PATH=$NDK_ROOT:$PATH
-export PATH=~/bin:$PATH
-
-#export PS1="\u@\d:"
-#export PS1="\u@\h:\w$ "
-
+export PATH=$PATH:$HOME/bin:$HOME/scripts
 export EDITOR="vim"
-export PROJECT_HOME="/Users/min/projects"
 
 alias rm='rm -i'
 alias mv='mv -i'
@@ -23,23 +7,27 @@ alias cp='cp -i'
 alias vi='vim'
 alias ls='ls -G'    # mac os x
 
-# alias for java
-alias javac='javac -J-Dfile.encoding=UTF-8 -encoding UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
-
-# alias for hidden files
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-
 # Ignore repeated commonds
 export HISTCONTROL=ignoredups
 # Ignore commonds splited by the colons
-export HISTIGNORE="[  ]*:&:bg:fg:exit:ls:rm:pwd"
+export HISTIGNORE="[  ]*:&:bg:fg:exit:ls:pwd"
 # Set history file size
 export HISTFILESIZE=10000000
 # Set the number of commands to remember
 export HISTSIZE=1000000
 
-# For virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# alias for java
+alias javac='javac -J-Dfile.encoding=UTF-8 -encoding UTF-8'
+alias java='java -Dfile.encoding=UTF-8'
+
+export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle/
+export PATH=$ANDROID_NDK:$HOME/Library/Android/sdk/platform-tools:$PATH
+
+# CCACHE
+export USE_CCACHE=1
+export NDK_CCACHE=/usr/local/bin/ccache
+
+# alias for hidden files
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+
