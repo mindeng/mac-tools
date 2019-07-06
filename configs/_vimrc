@@ -70,7 +70,7 @@ set guioptions-=m
 " For unite.vim
 "nnoremap <leader>f :<C-u>Unite -start-insert buffer file<CR>
 "nnoremap <leader>b :<C-u>Unite -start-insert buffer<CR>
-nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
+"nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
 "nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>

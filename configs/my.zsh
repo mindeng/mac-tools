@@ -31,3 +31,6 @@ export NDK_CCACHE=/usr/local/bin/ccache
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 
+# avoid locale warning messages
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

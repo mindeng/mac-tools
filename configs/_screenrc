@@ -19,3 +19,6 @@ shell -$SHELL
 # Don't block command output if the terminal stops responding
 # (like if the ssh connection times out for example).
 nonblock on
+
+# C-a v sets your X clipboard to the content of screens copy buffer.
+bind v eval "writebuf" "exec sh -c 'exec xsel -b --display :0 -i < /tmp/screen-exchange'"
