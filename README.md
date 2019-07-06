@@ -2,7 +2,14 @@
 
 Tools, configs & tips for Mac.
 
-## Software
+## Configs
+
+```sh
+git clone git@github.com:mindeng/mac-tools.git && cd mac-tools
+python3 ./mac-init.py
+```
+
+## Tools
 
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [homebrew](https://brew.sh/)
