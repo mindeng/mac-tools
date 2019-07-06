@@ -17,11 +17,13 @@ python3 ./mac-init.py
 
 ### Python
 
-* python3: `brew install python`
-* ipython: `pip3 install ipython`
-* virtual environment: `python3 -m venv env-name`
-* pycrypto: `pip3 install pycrypto`
-  
+```sh
+brew install python
+pip3 install ipython
+pip3 install pycrypto
+brew install pipenv
+```
+
 ## Proxy
 
 ### socks
