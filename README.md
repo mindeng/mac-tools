@@ -1,22 +1,21 @@
 # mac-tools
+
 Tools, configs & tips for Mac.
 
 ## Software
-* install brew
-* brew install wget
+
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+* [homebrew](https://brew.sh/)
+* python3: `brew install python`
+* ipython: `pip3 install ipython`
+* proxy: `pip3 install `
 
 ### Python
-* Must re-install python before you can install ipython:
 
-  `brew install python`
-  
-* Install pip: 
-  
-  `wget https://bootstrap.pypa.io/get-pip.py -P /tmp && sudo python /tmp/get-pip.py`
+* virtual environment:
+
+  `python3 -m venv env-name`
   
 * Install some python tools & libs:
 
-  `pip install virtualenv virtualenvwrapper ipython pycrypto`
-
-## Setting Tips
-* Disable the annoying bell in terminal from the preference of the terminal
+  `pip3 install pycrypto`
