@@ -17,23 +17,23 @@ Tools, configs & tips for Mac.
 ## Proxy
 
 * socks
-
-    mkdir ~/envs && cd envs
-    python3 -m venv ss
-    . ss/bin/activate
-    pip3 install s*s*
-    cat <<EOT >> ss/ss.json
-    {
-        "server": "server_name",
-        "server_port": 12345,
-        "local_address": "127.0.0.1",
-        "local_port": 1086,
-        "password": "password",
-        "timeout": 300,
-        "method": "chacha20",
-        "fast_open": false
-    }
-    EOT
-    ss -c ss/ss.json
-
+```
+mkdir ~/envs && cd envs
+python3 -m venv ss
+. ss/bin/activate
+pip3 install s*s*
+cat <<EOT >> ss/ss.json
+{
+    "server": "server_name",
+    "server_port": 12345,
+    "local_address": "127.0.0.1",
+    "local_port": 1086,
+    "password": "password",
+    "timeout": 300,
+    "method": "chacha20",
+    "fast_open": false
+}
+EOT
+ss -c ss/ss.json
+```
 * http proxy: privoxy, polipo, squid, varnish, tinyproxy
