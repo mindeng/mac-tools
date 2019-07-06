@@ -50,4 +50,14 @@ ss -c ss/ss.json
 
 ### http proxy
 
-privoxy, polipo, squid, varnish, tinyproxy
+## privoxy
+
+```sh
+brew install privoxy
+cat <<EOT >> /usr/local/etc/privoxy/config
+forward-socks5t / 127.0.0.1:1086 .
+EOT
+brew services start privoxy
+```
+
+default listen address: 127.0.0.1:8118
