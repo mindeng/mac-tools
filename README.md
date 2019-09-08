@@ -2,6 +2,15 @@
 
 Tools, configs & tips for Mac.
 
+### Python
+
+```sh
+brew install python
+pip3 install ipython
+pip3 install pycrypto
+brew install pipenv
+```
+
 ## Configs
 
 ```sh
@@ -14,15 +23,6 @@ python3 ./mac-init.py
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [homebrew](https://brew.sh/)
 * Install vim from brew, which supports xclipboard: `brew install vim`
-
-### Python
-
-```sh
-brew install python
-pip3 install ipython
-pip3 install pycrypto
-brew install pipenv
-```
 
 ## Proxy
 
